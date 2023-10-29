@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/icofont.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  
 
 </head>
 <body>
@@ -35,7 +37,7 @@
                     <a class="nav-link" href="#antrian">Antrian</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#berobat">Daftar Berobat</a>
+                    <a class="nav-link" href="#berobat">Berobat Sekarang</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#kontak">Kontak Kami</a>
@@ -90,8 +92,7 @@
         </div>
         </section>
         
-        <section id="layanan" data-aos-duration="1000" data-aos="fade-up">
-                <br><br><br><br><br>
+        <section id="layanan" data-aos-duration="1000" data-aos="fade-up" style="margin-top: 10%;">
             <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
@@ -161,8 +162,7 @@
             </div>
             </div>
             </section>
-            <section id="dokter" data-aos-duration="1000" data-aos="zoom-in">
-                <br><br><br><br><br><br><br>
+            <section id="dokter" data-aos-duration="1000" data-aos="zoom-in" style="margin-top: 10%;">
                 <div class="container">
                 <div class="row">
                      <div class="col-lg-12 col-md-12 col-12">
@@ -210,8 +210,65 @@
                 </div>
                 </div>
             </section>
-            <section id="antrian">
-                <br><br><br><br><br><br><br>
+            <section id="antrian" data-aos-duration="1000" data-aos="fade-up" style="margin-top: 10%;">
+                <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <center><h2>Antrian saat ini</h2></center>
+                        <br>
+                    </div>
+                     <div class="col-lg-12 col-md-12 col-12">
+                        <table id="antrian_table" class="display">
+                            <thead>
+                                <tr>
+                                    <th>Nomor Antrian</th>
+                                    <th>Nama</th>
+                                    <th>Poli Klinik</th>
+                                    <th>Keluhan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Harits Liyanto</td>
+                                    <td>Gigi</td>
+                                    <td>Gigi berlubang</td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>M Ragil Pratama</td>
+                                    <td>Poli Gigi</td>
+                                    <td>Ngilu pada saraf gigi</td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Affan Yusuf Fadillah</td>
+                                    <td>Poli THT</td>
+                                    <td>Radang Tenggorokan</td>
+                                </tr>
+                                <tr>
+                                    <td>004</td>
+                                    <td>Kevin Adi Sanjaya</td>
+                                    <td>Spesialis Anak</td>
+                                    <td>Diare</td>
+                                </tr>
+                                <tr>
+                                    <td>005</td>
+                                    <td>Winona Phoebe Putri Nugroho</td>
+                                    <td>Spesialis Anak</td>
+                                    <td>Demam dan Batuk</td>
+                                </tr>
+                                <tr>
+                                    <td>006</td>
+                                    <td>M. Rofika Al Zikri</td>
+                                    <td>Poli Umum</td>
+                                    <td>Sakit Kepala</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             </section>
             <section id="berobat">
                 
@@ -224,6 +281,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script>
     window.onscroll = function () {
         
@@ -263,7 +322,7 @@
 
                 counters.forEach(counter => {
                     const updateCount = () => {
-                        const target = Math.floor(Math.random() * 10000); // Random number between 0 and 1000
+                        const target = Math.floor(Math.random() * 100); // Random number between 0 and 1000
                         const count = +counter.innerText;
 
                         const inc = target / 1000000000000; // Speed of counting
@@ -297,5 +356,9 @@
     <script>
         AOS.init();
     </script>
-
+<script>
+    $(document).ready(function() {
+        $('#antrian_table').DataTable();
+    });
+</script>
 </html>
